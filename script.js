@@ -59,8 +59,11 @@ function toggleMenuClick() {
     toggleMenu.className.includes('is-active') ? toggleMenu.classList.remove('is-active') : toggleMenu.classList.add('is-active')
 }
 toggleMenu.addEventListener('click', () => toggleMenuClick())
+for (let i = 0; i <= 3; i++) {
+    document.getElementById(`${i}`).addEventListener('click', () => render(i))
+}
 
-function render(id = 1) {
+function render(id = 0) {
     const elem = document.getElementById('main');
     const info = Ghostbusters[id];
 
