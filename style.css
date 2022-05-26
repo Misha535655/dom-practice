@@ -9,11 +9,11 @@ body {
     margin: 0 auto;
 }
 
-header{
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #777;
+    background-color: #000;
     padding: 15px;
 }
 
@@ -22,16 +22,157 @@ header{
     height: 100px;
     border-radius: 50%;
 }
-.menu{
+
+.menu {
     width: 80%;
 }
-.menu ul {
+
+.menu .descMenu {
     display: flex;
     justify-content: space-around;
 }
+
 .menu ul li {
     padding: 10px 25px;
     font-size: 20px;
-    border: 1px solid #000;
-    border-radius: 10%;
+    border: 1px solid #fff;
+    border-radius: 15%;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.menu ul li:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+.c-hamburger {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 90px;
+    height: 90px;
+    font-size: 0;
+    text-indent: -9999px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.c-hamburger:focus {
+    outline: none;
+}
+
+.c-hamburger span {
+    display: block;
+    position: absolute;
+    top: 44px;
+    left: 18px;
+    right: 18px;
+    height: 8px;
+    background: white;
+}
+
+.c-hamburger span::before,
+.c-hamburger span::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: #fff;
+    content: "";
+}
+
+.c-hamburger span::before {
+    top: -20px;
+}
+
+.c-hamburger span::after {
+    bottom: -20px;
+}
+
+.c-hamburger--htx {
+    background-color: #ff3264;
+}
+
+.c-hamburger--htx span {
+    transition: background 0s 0.3s;
+}
+
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+
+.c-hamburger--htx span::before {
+    transition-property: top, transform;
+}
+
+.c-hamburger--htx span::after {
+    transition-property: bottom, transform;
+}
+
+
+/* состояние active при открытом меню  */
+
+.c-hamburger--htx.is-active {
+    background-color: #cb0032;
+}
+
+.c-hamburger--htx.is-active span {
+    background: none;
+}
+
+.c-hamburger--htx.is-active span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active span::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+    transition-delay: 0s, 0.3s;
+}
+
+.film {
+    display: flex;
+    padding-top: 10%;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.description {
+    width: 60%;
+}
+
+.description h1 {
+    padding-bottom: 10px;
+}
+
+@media(max-width: 1024px) {
+    body {
+        width: 100%;
+    }
+    .menu {
+        display: flex;
+        justify-content: end;
+    }
+    .menu .descMenu {
+        display: none;
+    }
+    .c-hamburger {
+        display: block;
+    }
 }
