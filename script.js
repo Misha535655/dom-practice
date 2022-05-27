@@ -51,19 +51,29 @@ let Ghostbusters = [{
         'description': `Single mother Kelly, burdened with financial troubles, along with teenage children Phoebe and Trevor, moves to a provincial town in Oklahoma, where her late father's dilapidated farm is located. Soon an inquisitive Phoebe, exploring the nooks and crannies of their new home, unexpectedly finds old equipment to destroy ghosts. With the help of Mr. Groberson, a science teacher at a local school, Phoebe and Trevor discover the truth about the exploits of ghost hunters in the 1980s, in which their grandfather was actively involved. When paranormal events begin to occur in a provincial town, the main characters reveal grim details about their family's past.`
     },
 ]
-
+console.log(window.screen.width)
 
 let toggleMenu = document.getElementById('toggleMenu');
 
 function toggleMenuClick() {
-    toggleMenu.className.includes('is-active') ? toggleMenu.classList.remove('is-active') : toggleMenu.classList.add('is-active')
+    let mask = document.getElementById('desc');
+    mask.style.display = 'flex'
+    if (toggleMenu.className.includes('is-active') && window.screen.width < 1024) {
+        toggleMenu.classList.remove('is-active');
+        mask.style.display = 'none'
+    } else {
+        toggleMenu.classList.add('is-active');
+        mask.style.display = 'flex';
+    }
 }
 toggleMenu.addEventListener('click', () => toggleMenuClick())
+
 for (let i = 0; i <= 3; i++) {
     document.getElementById(`${i}`).addEventListener('click', () => render(i))
 }
 
 function render(id = 0) {
+    toggleMenuClick();
     const elem = document.getElementById('main');
     const info = Ghostbusters[id];
 
@@ -80,7 +90,7 @@ function render(id = 0) {
             <li class="filmsinfo">Genre: ${info.Genre}</li>
             <li class="filmsinfo">Age: ${info.Age}</li>
             <li class="filmsinfo">Time: ${info.Time}</li>
-            <li class="filmsinfo">${info.description}</li>
+            <li class="filmsinfo"><h1>Description:</h1>${info.description}</li>
         </ul>
     </section>
 </article>`

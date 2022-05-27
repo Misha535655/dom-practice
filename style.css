@@ -155,9 +155,14 @@ header {
 
 .description {
     width: 60%;
+    padding-left: 20px;
 }
 
 .description h1 {
+    padding-bottom: 10px;
+}
+
+.description .filmsinfo {
     padding-bottom: 10px;
 }
 
@@ -168,11 +173,28 @@ header {
     .menu {
         display: flex;
         justify-content: end;
+        align-items: flex-end;
+        flex-direction: column;
     }
-    .menu .descMenu {
+    .descMenu {
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        transform: translate(20%);
         display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    .descMenu .item {
+        width: 40%;
+        margin-bottom: 20px;
+        border-radius: 0%;
     }
     .c-hamburger {
         display: block;
+    }
+    .film {
+        flex-direction: column;
     }
 }
